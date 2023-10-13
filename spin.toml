@@ -1,0 +1,16 @@
+spin_manifest_version = "1"
+authors = ["Danielle Lancashire <dani@builds.terrible.systems>"]
+description = ""
+name = "foo"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "foo"
+source = "main.wasm"
+allowed_http_hosts = []
+[component.trigger]
+route = "/..."
+[component.build]
+command = "make build"
+watch = ["**/*.go", "go.mod"]
