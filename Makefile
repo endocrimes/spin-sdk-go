@@ -1,3 +1,6 @@
+$(wildcard spin-http/*): $(wildcard wit/*)
+	wit-bindgen tiny-go -w http-trigger ./wit --out-dir=spin-http
+
 main.wasm: $(wildcard **/*.go) $(wildcard spin-http/*)
 	tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go
 
